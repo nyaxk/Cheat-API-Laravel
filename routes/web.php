@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * Main page route
+ */
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
+});
+
+/**
+ * Admin routes
+ */
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], static function () {
+    Route::resource('login',LoginController::class);
+});
+
+/**
+ * Users routes
+ */
+Route::group(['namespace' => 'Users','prefix' => 'users'],static function(){
+
 });
